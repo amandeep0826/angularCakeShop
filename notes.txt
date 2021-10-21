@@ -1,0 +1,287 @@
+If you dont have nodejs 
+Download Node js from nodejs.org recommended version 
+
+Install Angular cli using command prompt
+
+npm install -g @angular/cli
+
+After installation of angular cli create a new project in angular 
+
+in command prompt go to Desktop path 
+
+type 
+
+ng new projectname
+For Example ng new fisangular
+
+It will ask for routing -- select yes
+
+It will ask for styling -- select css 
+
+>>>>>>>>>> File Structure 
+
+1) node_modules contains all the packages used for creating angular project
+2) src folder will be source code of your peoject 
+3) package.json package.json is the description of your project lets say later u install one package gmail-login
+  gmail-login will be added as a dependency into package.json
+
+
+  npm install inside the project will install all the dependencies mentioned in package.json into node_modules
+
+  TO start the project one time 
+  ng serve
+
+
+  ng serve starts a http server in your system , http server is by default listening to 4200 port number 
+  once server is started go to browser and open http://localhost:4200
+
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Angular says create you project into small pieces of components 
+  Component based architecture 
+
+
+  Divide your app into components and integrate them together 
+
+For example login , signup , forgot , video , videolist navbar , carousel
+
+What is a component 
+Component is basically a reusable entity which u see in your project 
+
+component is whatever u see on ur screen 
+
+
+Appcomponent is the one which is created by ng serve 
+
+when u run ng serve
+
+1) A server is created and running at 4200
+2) that server sends your index.html file inside the browser
+3) index.html file shows a component to you which is app component 
+
+
+A component which is placed inside index.html is known as Root Component
+go to app.module.ts and check bootstrap array and tell me which component will go into index.html ?
+
+
+Manager 
+
+Senior Managaer 
+
+Business analyst 
+
+Qa
+
+All of these are employees 
+
+Similarly everything in angular is a class
+
+When someone ask to create a component what will we create 
+we will create a class 
+
+
+// creating a component 
+
+3 parts -- 
+
+creation  - create a folder with 3 files for example carousel corousel.component.ts , corousel.component.html corousel.component.css.   In ts file create a component class
+
+
+declaration 
+usage 
+
+
+<app-button>
+
+>>>>>>>>>>>>> To create component using cli >>>>>>>>>>>>>>>>>>
+ng generate component componentname
+
+ng generate component signup
+it will create the component for u and it will declare the component as well 
+
+
+
+After creating components 
+We will design 
+
+FOr designing we will use external library BOOTSTRAP 
+
+// integrate by cdn
+getbootstrap.com and include cdn of css and js into index.html
+
+
+to use images in angular put it in inside assets folder in src and use path with extension 
+
+Example 
+<img src="assets/imagename.jpeg">
+<img src="assets/imagename.jpg">
+<img src="assets/imagename.png">
+<img src="assets/imagename.webp">
+
+
+Data Binding -- showing data of component class into component html via INTERPLATION    {{}} DOUBLE CURLY BRACES
+If i have to show data in any component html it must come from ts of that component
+
+
+Event binding --- calling the function on events happening 
+
+(click)="methodName()"  (circular parenthesis)
+
+One way Binding --- becaus the value is going from ts to html 
+Data binding 
+Event Binding 
+Property Binding 
+
+<image  [src]="something"> in the case of square braces the something will be considered as property of component
+
+
+ts to html 
+html to ts (user is entering and u want to get it what user is entering )
+
+2 way data binding 
+Steps to use 2 way binding 
+1) Import FormsModule into app.module.ts
+
+[(ngModel)] = "propertyname"
+
+
+Cake component should be desinged in a manner that name image price should be passed to cake component and it should show the data it received 
+
+
+Cakelist component is displaying cake component ?
+cake component is child of cakelist component
+
+Parents can pass inputs to their children
+
+<componentname  prop1="value1" prop2="value2" prop3="value3" />
+
+which component is going to receive the input Child (Cake component)
+
+
+Create a component known as Addcake
+Name 
+Price 
+Weight 
+Description 
+image <input type="file" />
+flavour
+eggless  (checkout)
+ingredients (enter ingredients seperated by comma (,))
+
+<button>Add Cake </button>
+
+Components 
+Oneway Binding  - Event propperty and data 
+2 way data binding 
+Component Interaction 
+Parent to child @Input 
+Child TO Parent @Output ()
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Repetion of elements
+Conditional rendering
+Services/Injectables 
+
+
+Repeat items in array
+*ngFor is used to repeat the elements for number of items in an array 
+
+Now if array of users = ["Ashu"  "Parvinder" ,"Vijay" ]
+if array is of objects = [{name:"Ashu",id:384783}  , {name:"Vijay" ,id:334565}]
+
+Anything html element which starts with angular beaces
+<element *ngFor="let each of arrayname"></element>
+
+We want to show elements only if our condition is true 
+Conditional rendering 
+
+
+<element *ngIf="false">  </element>
+
+
+You have to display those cakes using *ngFor 
+
+and those objects few will have an extra key known as egless:true 
+
+those cakes which will have egless fiield in the object will render a green symbol for veg 
+
+
+we have used one function validateEmail in 2 components ?
+Login and Signup 
+
+
+We have a common way known as Services
+
+
+Services/Injectables are the classes used for sharing common things 
+
+We will put the commo things into services and use it in any component we need 
+we inject the service into component and use it 
+
+
+Create a service 
+ng g s servicename  ng g s common
+
+Put the common things into service 
+i have placed a function validateEmail()
+
+
+
+Inject the service into component and use it
+How do we inject it ? we inject it into constructor of component
+
+
+cakes:any = [
+    {
+      name:"Choco Truffle Cake",
+      price:500,
+      image:"assets/truffle.jpeg",
+      eggless:true
+    },
+    {
+      name:"Mango Cake",
+      price:600,
+      image:"assets/mango.jpeg"
+    },
+    {
+      name:"Fruit Cake",
+      price:800,
+      image:"assets/fruit.webp"
+    }
+  
+  ]
+
+
+  we have to put in services 
+
+  then we have to use this cakes array in 2 places 
+  Cakelist component 
+  Cart component 
+
+
+  routeroutlet will load that component whatever we will tell it load
+
+  Process of telling which component to load on which path is known as Routing 
+
+  Defining the path and components corresponding to those paths is known as Routing
+
+
+
+  Life Cycle of components 
+  Today components are coming on screen and leaving the screen 
+
+
+From coming on screen to leaving screen 
+it goes through a process known as life cycle 
+
+constructor() -- creation of component is started 
+ngOnChanges() -- If any components recieves input properties this will be called and when input properties are updated then also it is called 
+ngOnInit() -- once the components received input properties successfully this will be called
+ngOnDestroy()  -- just before the component is leaving the screen it will be called 
+
+
+
+
+ngDoCheck()
+

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'fisDemoAngularProject'`, () => {
+  it(`should have as title 'fisglobalangular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('fisDemoAngularProject');
+    expect(app.title).toEqual('fisglobalangular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('fisDemoAngularProject app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('fisglobalangular app is running!');
   });
 });

@@ -1,0 +1,35 @@
+<div *ngIf="cartitems.length > 0; else emptycarttemplate">
+  <h1>Your Shopping Cart</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let each of cartitems; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ each.name }}</td>
+        <td>{{ each.price }}</td>
+        <td><img style="height: 4em; width: 4em" [src]="each.image" /></td>
+        <td>{{ each.quantity }}</td>
+        <td>
+          <button (click)="removeFromCart(i)" class="btn btn-danger">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Total Price: {{ totalPrice }}</h4>
+  <button class="btn btn-warning" routerLink="/checkout">Checkout</button>
+</div>
+
+<ng-template #emptycarttemplate>
+  <div>
+    <h1>No cakes Added into your cart</h1>
+  </div>
+</ng-template>

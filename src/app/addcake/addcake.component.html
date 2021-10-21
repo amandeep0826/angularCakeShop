@@ -1,0 +1,41 @@
+<div>
+    <h1>Add New Cake</h1>
+    <div class="row">
+        <div class="col-md-5">
+            <input class="form-control" type="text" [(ngModel)]="name" placeholder="Cake Name">
+            <input class="form-control" type="number" [(ngModel)]="price" placeholder="Cake Price">
+            <input class="form-control" type="text" [(ngModel)]="weight" placeholder="Cake weight">
+            <input (change)="getFile($event)" type="file">
+            <button (click)="addCake()" class="btn btn-primary">Add Cake</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="cakes.length>0">
+<h1> Cakes </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Image</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let each of cakes">
+            <th scope="row">1</th>
+            <td>{{each.name}}</td>
+            <td>{{each.price}}</td>
+            <td>{{each.weight}}</td>
+            <td><img [src]="each.image"></td>
+        </tr>
+
+    </tbody>
+</table>
+</div>

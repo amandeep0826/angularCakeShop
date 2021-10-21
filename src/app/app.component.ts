@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fisDemoAngularProject';
+  title = 'fisglobalangular';
+  user :any
+  successlogin(){
+    this.user = "Ashu Lekhi"
+  }
 }

@@ -1,0 +1,8 @@
+<h1>{{ searchresults.length }} cakes found for {{ searchtext }}</h1>
+<div class="row">
+  <app-cake
+    *ngFor="let each of searchresults"
+    [cakedata]="each"
+    class="col-3"
+  ></app-cake>
+</div>
