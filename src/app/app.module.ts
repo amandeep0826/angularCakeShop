@@ -23,6 +23,8 @@ import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CakedetailsComponent } from './cakedetails/cakedetails.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { DiscountPipe } from './discount.pipe';
+import { LanguagePipe } from './language.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SearchComponent,
     PagenotfoundComponent,
     CakedetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    DiscountPipe,
+    LanguagePipe
   ],
   imports: [
     BrowserModule,

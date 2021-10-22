@@ -31,7 +31,7 @@
         </ul> -->
         <p>
           <span class="mr-1"
-            ><strong>{{ cake.price | currency }} </strong></span
+            ><strong>{{ cake.price | discount | currency: "INR" }} </strong></span
           >
         </p>
         <p class="pt-1">{{ cake.description }}</p>

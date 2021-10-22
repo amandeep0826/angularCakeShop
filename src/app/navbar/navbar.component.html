@@ -35,7 +35,7 @@
       <div *ngIf="!isloggedin" class="d-flex">
         <button routerLink="/login" class="btn btn-primary">Login</button>
       </div>
-
+      <label>{{brand | language}}</label>
       <div *ngIf="isloggedin" class="d-flex">
         <button
           style="margin-right: 5em"
