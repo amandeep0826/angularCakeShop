@@ -12,6 +12,7 @@ import { CommonService } from '../common.service';
 export class CartComponent implements OnInit {
 
   totalPrice: any = 0
+  // cartItems: any = []
 
 
   constructor(private common: CommonService, private http: HttpClient, private loader: NgxUiLoaderService, private router: Router) {
@@ -30,10 +31,12 @@ export class CartComponent implements OnInit {
       headers: myheaders
     }).subscribe((response: any) => {
       console.log("Response from cakecart api", response)
+      this.common.cakeCart = response.data
       this.cartitems = response.data
       this.cartitems.forEach((each: any) => {
         this.totalPrice = this.totalPrice + (each.price * each.quantity)
       })
+      this.common.totalCartPrice = this.totalPrice
       this.loader.stop()
       // alert(`${response.data.name} is added to your cart`)
     }, (error) => {
@@ -62,13 +65,17 @@ export class CartComponent implements OnInit {
     })
   }
 
+  submitCheckout() {
+
+  }
+
   // ngOnChanges() {
   //   alert("On changes")
   // }
 
   cartitems: any
   ngOnInit(): void {
-    // alert("on init")
+
   }
 
   // ngOnDestroy() {

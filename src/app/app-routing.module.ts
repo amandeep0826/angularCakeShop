@@ -11,6 +11,9 @@ import { SearchComponent } from './search/search.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CakedetailsComponent } from './cakedetails/cakedetails.component';
+import { AddressComponent } from './address/address.component';
+import { PaymentComponent } from './payment/payment.component';
+import { OrdersummaryComponent } from './ordersummary/ordersummary.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +24,14 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'search', component: SearchComponent },
   { path: 'cake/:cakeid', component: CakedetailsComponent }, // parameterised route: cakeid is the parameter 
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'checkout', children: [
+      { path: '', redirectTo: 'address', pathMatch: 'prefix' },
+      { path: 'address', component: AddressComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'ordersummary', component: OrdersummaryComponent }
+    ], component: CheckoutComponent
+  },
   { path: 'forgot', component: ForgotComponent },
   { path: '**', component: PagenotfoundComponent },
 

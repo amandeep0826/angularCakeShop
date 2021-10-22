@@ -26,6 +26,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { DiscountPipe } from './discount.pipe';
 import { LanguagePipe } from './language.pipe';
 import { HighlightDirective } from './highlight.directive';
+import { IsadminDirective } from './isadmin.directive';
+import { AddressComponent } from './address/address.component';
+import { PaymentComponent } from './payment/payment.component';
+import { OrdersummaryComponent } from './ordersummary/ordersummary.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { HighlightDirective } from './highlight.directive';
     CheckoutComponent,
     DiscountPipe,
     LanguagePipe,
-    HighlightDirective
+    HighlightDirective,
+    IsadminDirective,
+    AddressComponent,
+    PaymentComponent,
+    OrdersummaryComponent
   ],
   imports: [
     BrowserModule,

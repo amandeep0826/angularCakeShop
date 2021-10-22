@@ -12,16 +12,16 @@ export class CakelistComponent implements OnInit {
 
   constructor(private cs: CommonService, private http: HttpClient, private loader: NgxUiLoaderService) {
     this.cakes = this.cs.cakes
-    console.log(this.cakes)
+    // console.log(this.cakes)
     if (this.cs.cakes) {
       this.cakes = this.cs.cakes
-      console.log("Cakes exist")
+      // console.log("Cakes exist")
     }
     else {
       var url = "https://apifromashu.herokuapp.com/api/allcakes"
       this.loader.start()
       this.http.get(url).subscribe((response: any) => {
-        console.log("response from allcakes", response)
+        // console.log("response from allcakes", response)
         this.loader.stop()
         this.cakes = response.data
       }, (error) => {

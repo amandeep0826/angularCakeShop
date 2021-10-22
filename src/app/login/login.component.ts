@@ -27,10 +27,12 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
     this.http.post(url, requestJson).subscribe((response: any) => {
-      console.log("response from login api", response)
+      // console.log("response from login api", response)
+      // localStorage.email = response.email
       this.loader.stop()
       if (response.token) {
         localStorage.token = response.token
+        localStorage.email = response.email
         this.router.navigate(["./"])
       }
     }, (error) => {

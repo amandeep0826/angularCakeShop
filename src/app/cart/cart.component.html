@@ -25,7 +25,13 @@
     </tbody>
   </table>
   <h4>Total Price: {{ totalPrice }}</h4>
-  <button class="btn btn-warning" routerLink="/checkout">Checkout</button>
+  <button
+    (click)="(submitCheckout)"
+    class="btn btn-warning"
+    routerLink="/checkout"
+  >
+    Checkout
+  </button>
 </div>
 
 <ng-template #emptycarttemplate>
