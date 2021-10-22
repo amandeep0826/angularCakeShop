@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.zoom {
+  transition: transform 0.2s;
+  border: 8px solid #fff;
+}
+.zoom1 {
+  transform: scale(1.1);
+  z-index: 1;
+}

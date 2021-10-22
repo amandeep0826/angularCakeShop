@@ -25,6 +25,7 @@ import { CakedetailsComponent } from './cakedetails/cakedetails.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DiscountPipe } from './discount.pipe';
 import { LanguagePipe } from './language.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LanguagePipe } from './language.pipe';
     CakedetailsComponent,
     CheckoutComponent,
     DiscountPipe,
-    LanguagePipe
+    LanguagePipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

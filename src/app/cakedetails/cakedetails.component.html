@@ -9,8 +9,9 @@
               <div class="view overlay rounded z-depth-1 main-img">
                 <a href="{{ cake.image }}" data-size="710x823">
                   <img
+                    appHighlight
                     src="{{ cake.image }}"
-                    class="img-fluid z-depth-1"
+                    class="img-fluid z-depth-1 zoom"
                     style="width: 100%"
                   />
                 </a>
@@ -31,7 +32,9 @@
         </ul> -->
         <p>
           <span class="mr-1"
-            ><strong>{{ cake.price | discount | currency: "INR" }} </strong></span
+            ><strong
+              >{{ cake.price | discount | currency: "INR" }}
+            </strong></span
           >
         </p>
         <p class="pt-1">{{ cake.description }}</p>
