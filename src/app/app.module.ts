@@ -30,6 +30,7 @@ import { IsadminDirective } from './isadmin.directive';
 import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrdersummaryComponent } from './ordersummary/ordersummary.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { OrdersummaryComponent } from './ordersummary/ordersummary.component';
     IsadminDirective,
     AddressComponent,
     PaymentComponent,
-    OrdersummaryComponent
+    OrdersummaryComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

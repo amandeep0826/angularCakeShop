@@ -1,22 +1,63 @@
-<div style="width:50% ;margin:auto">
-    
-    <h1>Sign Up</h1>
+<div style="width: 50%; margin: auto">
+  <h1>Sign Up</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="signup()">
     <div class="mb-3">
       <label class="form-label">Email address</label>
-      <input placeholder="Your Email" [(ngModel)]="email" type="email" class="form-control"  aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      <div style="color:red">
-          <label *ngIf="emailError">{{emailError}}</label>
+      <input
+        placeholder="Your Email"
+        formControlName="email"
+        type="email"
+        class="form-control"
+        aria-describedby="emailHelp"
+      />
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+      <div
+        *ngIf="submitted && signupForm.controls.email.errors"
+        style="color: red"
+      >
+        <label *ngIf="signupForm.controls.email.errors.required"
+          >Email is Required</label
+        >
+        <label *ngIf="signupForm.controls.email.errors.email"
+          >Email is Invalid</label
+        >
       </div>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input [(ngModel)]="name" type="text" class="form-control"  aria-describedby="emailHelp">
+      <label class="form-label">Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        aria-describedby="emailHelp"
+      />
+      <div
+        *ngIf="submitted && signupForm.controls.name.errors"
+        style="color: red"
+      >
+        <label *ngIf="signupForm.controls.name.errors.required"
+          >Name is Required</label
+        >
       </div>
-    <div class="mb-3">
-      <label  class="form-label">Password</label>
-      <input [(ngModel)]="password" type="password" class="form-control" >
     </div>
-    <button (click)="signup()" type="submit" class="btn btn-primary">Signup</button>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control" />
+      <div
+        *ngIf="submitted && signupForm.controls.password.errors"
+        style="color: red"
+      >
+        <label *ngIf="signupForm.controls.password.errors.required"
+          >Password is Required</label
+        >
+        <label *ngIf="signupForm.controls.password.errors.email"
+          >Password is Invalid</label
+        >
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Signup</button>
+  </form>
 </div>

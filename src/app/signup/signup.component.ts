@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { CommonService } from '../common.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-signup',
@@ -10,25 +11,28 @@ import { CommonService } from '../common.service';
 })
 export class SignupComponent implements OnInit {
 
-  email: any
-  name: any
-  password: any
-  emailError: any = ""
+  signupForm: any
+  submitted: any = false
 
-  constructor(private common: CommonService, private http: HttpClient, private loader: NgxUiLoaderService) { }
+  constructor(private common: CommonService, private http: HttpClient, private loader: NgxUiLoaderService, private formBuilder: FormBuilder) { }
 
-
+  ngOnInit(): void {
+    this.signupForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    })
+  }
 
   signup() {
-    if (this.common.validEmail(this.email)) {
+    var requestJson = this.signupForm.value
+    this.submitted = true
+    if (this.signupForm.invalid) {
+      return
+    }
+    else {
       this.loader.start()
       var url = "https://apifromashu.herokuapp.com/api/register"
-      this.emailError = ""
-      var requestJson = {
-        email: this.email,
-        name: this.name,
-        password: this.password
-      }
       this.http.post(url, requestJson).subscribe((response) => {
         console.log("response from sign up api", response)
         this.loader.stop()
@@ -37,17 +41,7 @@ export class SignupComponent implements OnInit {
         this.loader.stop()
       })
     }
-    else {
-      this.emailError = "Invalid Email"
-    }
-
-    console.log("Email is", this.email)
-    console.log("Name is", this.name)
-    console.log("Password is", this.password)
   }
-
-
-  ngOnInit(): void {
-  }
-
 }
+
+// api name - cakeorders, method = post, requestjson = {}, headers = {authToken}
