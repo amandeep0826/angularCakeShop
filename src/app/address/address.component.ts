@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CommonService } from '../common.service';
 })
 export class AddressComponent implements OnInit {
 
-  constructor(private cs: CommonService) {
+  constructor(private cs: CommonService, private router: Router) {
   }
   billingAddress: any = []
   name: any
@@ -25,8 +26,9 @@ export class AddressComponent implements OnInit {
       phone: this.phone,
       pincode: this.pincode
     }
-
+    // this.cs.orderAddress = this.billingAddress
     this.cs.orderAddress = billingAddress
+    this.router.navigate(["/checkout/payment"])
 
     console.log("The billing address is ", billingAddress)
 

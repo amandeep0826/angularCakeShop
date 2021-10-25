@@ -22,6 +22,7 @@ export class CommonService {
   cakeCart: any
   orderAddress: any
   totalCartPrice: any
+  orderSummary: any
 
   validEmail(e: any) {
     var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;

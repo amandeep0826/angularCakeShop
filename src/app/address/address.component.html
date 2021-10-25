@@ -1,27 +1,80 @@
 <div>
-  <form>
+  <form
+    #addressform="ngForm"
+    class="col-md-6"
+    (submit)="addressform.valid && submitAddress()"
+  >
     <div class="mb-3">
       <label class="form-label">Name</label>
-      <input [(ngModel)]="name" name="name" class="form-control" />
+      <input
+        required
+        minlength="4"
+        [(ngModel)]="name"
+        name="username"
+        #username="ngModel"
+        class="form-control"
+      />
+      <div *ngIf="addressform.submitted && username.errors">
+        <label *ngIf="username.errors.required">Name is required</label>
+        <label *ngIf="username.errors.minlength"
+          >Name must contain min 4 characters</label
+        >
+      </div>
     </div>
     <div class="mb-3">
       <label class="form-label">Address</label>
-      <input [(ngModel)]="address" name="address" class="form-control" />
+      <input
+        required
+        #useraddress="ngModel"
+        [(ngModel)]="address"
+        name="useraddress"
+        class="form-control"
+      />
+      <div *ngIf="addressform.submitted && useraddress.errors">
+        <label *ngIf="useraddress.errors.required">Address is required</label>
+      </div>
     </div>
     <div class="mb-3">
       <label class="form-label">City</label>
-      <input [(ngModel)]="city" name="city" class="form-control" />
+      <input
+        required
+        #usercity="ngModel"
+        [(ngModel)]="city"
+        name="usercity"
+        class="form-control"
+      />
+      <div *ngIf="addressform.submitted && usercity.errors">
+        <label *ngIf="usercity.errors.required">City name is required</label>
+      </div>
     </div>
     <div class="mb-3">
       <label class="form-label">Phone Number</label>
-      <input [(ngModel)]="phone" name="phone" class="form-control" />
+      <input
+        required
+        #userphone="ngModel"
+        [(ngModel)]="phone"
+        name="userphone"
+        class="form-control"
+      />
+      <div minLength="10" *ngIf="addressform.submitted && userphone.errors">
+        <label *ngIf="userphone.errors.required"
+          >Phone number is required</label
+        >
+      </div>
     </div>
     <div class="mb-3">
       <label class="form-label">Pincode</label>
-      <input [(ngModel)]="pincode" name="pincode" class="form-control" />
+      <input
+        required
+        #userpincode="ngModel"
+        [(ngModel)]="pincode"
+        name="userpincode"
+        class="form-control"
+      />
+      <div *ngIf="addressform.submitted && userpincode.errors">
+        <label *ngIf="userpincode.errors.required">Pincode is required</label>
+      </div>
     </div>
-    <button (click)="submitAddress()" type="submit" class="btn btn-primary">
-      Submit
-    </button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-ordersummary',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersummaryComponent implements OnInit {
 
-  constructor() { }
+  order: any
+  constructor(private common: CommonService, private router: Router) {
+    if (!this.common.orderSummary) {
+      this.router.navigate(["/checkout/payment"])
+    }
+    this.order = this.common.orderSummary
+  }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.common.orderSummary = null
   }
 
 }

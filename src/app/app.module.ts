@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { HttpClientModule } from '@angular/common/http'
 import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { ToastrModule } from 'ngx-toastr';
@@ -64,7 +64,8 @@ import { OrdersummaryComponent } from './ordersummary/ordersummary.component';
     HttpClientModule,
     NgxUiLoaderModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
