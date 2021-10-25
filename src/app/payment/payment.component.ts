@@ -56,6 +56,7 @@ export class PaymentComponent implements OnInit {
       console.log("Response from order cakes api", response)
       this.toast.error("Your order has been successfully placed")
       this.cs.orderSummary = response.data
+      this.router.navigate(["/checkout/ordersummary"])
       this.loader.stop()
       // alert(`${response.data.name} is added to your cart`)
     }, (error) => {

@@ -1,1 +1,27 @@
-<p>orders works!</p>
+<h1>Your Previous orders</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Customer's Name</th>
+      <th scope="col">Total Amout</th>
+      <th scope="col">Order Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let each of orderItems; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ each.name }}</td>
+      <td>{{ each.price }}</td>
+      <td>{{ each.orderdate }}</td>
+      <td *ngIf="each.pending == true">Pending</td>
+      <td *ngFor="let cakelist of each.cakes">
+        <div>
+          <label>{{ cakelist.name }}</label>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

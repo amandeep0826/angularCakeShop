@@ -31,7 +31,7 @@
           </button>
         </form>
       </ul>
-      <label>{{ "Hello" | language }}</label>
+      <!-- <label>{{ "Hello" | language }}</label> -->
       <div *ngIf="!isloggedin" class="d-flex">
         <button routerLink="/login" class="btn btn-primary">Login</button>
       </div>
@@ -42,6 +42,13 @@
           class="btn btn-warning"
         >
           Cart
+        </button>
+        <button
+          style="margin-right: 5em"
+          routerLink="/orders"
+          class="btn btn-primary"
+        >
+          Orders
         </button>
         <button (click)="logout()" routerLink="/" class="btn btn-danger">
           Logout

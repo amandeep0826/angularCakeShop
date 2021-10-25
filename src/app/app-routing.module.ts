@@ -14,6 +14,7 @@ import { CakedetailsComponent } from './cakedetails/cakedetails.component';
 import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrdersummaryComponent } from './ordersummary/ordersummary.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     ], component: CheckoutComponent
   },
   { path: 'forgot', component: ForgotComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: '**', component: PagenotfoundComponent },
 
 ];
